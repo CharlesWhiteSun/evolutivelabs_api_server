@@ -17,7 +17,7 @@ func InitRouter() *gin.Engine {
 	apiv1 := r.Group("/api/v1")
 	{
 		apiv1.GET("/sentences", v1.GetSentence)
-		apiv1.GET("/:param", v1.GetItsThisForThatSentence)
+		apiv1.GET("/sentences/:param", v1.GetItsThisForThatSentence)
 	}
 
 	return r
