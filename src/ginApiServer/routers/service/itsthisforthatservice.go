@@ -5,20 +5,20 @@ import (
 	"net/http"
 )
 
-// DailySentence 每日一句
-type DailySentence struct {
+// ItsThisForThatDailySentence 帶參數每日一句
+type ItsThisForThatDailySentence struct {
 	ReqURL   string      // Request URL
 	RespData interface{} // Response Data
 }
 
-// NewDailySentence new DailySentence
-func NewDailySentence(url string) *DailySentence {
-	return &DailySentence{
+// NewItsThisForThatDailySentence new ItsThisForThatDailySentence
+func NewItsThisForThatDailySentence(url string) *ItsThisForThatDailySentence {
+	return &ItsThisForThatDailySentence{
 		ReqURL: url,
 	}
 }
 
-func (sentence *DailySentence) GetSentence() (*DailySentence, error) {
+func (sentence *ItsThisForThatDailySentence) GetItsThisForThatSentence() (*ItsThisForThatDailySentence, error) {
 	resp, err := http.Get(sentence.ReqURL)
 	if err != nil {
 		return nil, err
