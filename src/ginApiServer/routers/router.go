@@ -2,6 +2,7 @@ package routers
 
 import (
 	"api_server/src/ginApiServer/pkg/setting"
+	v1 "api_server/src/ginApiServer/routers/api/v1"
 
 	"github.com/gin-gonic/gin"
 )
@@ -13,11 +14,11 @@ func InitRouter() *gin.Engine {
 
 	gin.SetMode(setting.RunMode)
 
-	r.GET("/test", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "test",
-		})
-	})
+	apiv1 := r.Group("/api/v1")
+	{
+		apiv1.GET("/sentences", v1.GetSentence)
+		apiv1.GET("/:param", v1.GetItsThisForThatSentence)
+	}
 
 	return r
 }
